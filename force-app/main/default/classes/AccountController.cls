@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 08-10-2022
+ * @last modified on  : 08-14-2022
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class AccountController {
@@ -16,4 +16,8 @@ public with sharing class AccountController {
         return [Select Id,FirstName,LastName,Email,Phone from Contact where accountId=:accountId];
          
     }  
+    @AuraEnabled
+    public static List<Contact> getContactsImperative() {
+        return [Select Id,FirstName,LastName,Email,Phone from Contact];
+    }
 }
